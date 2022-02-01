@@ -7,6 +7,14 @@ if fn.empty(fn.glob(install_path)) > 0 then
   print("Installing packer close and reopen Neovim...")
 end
 
+
+vim.cmd([[
+  augroup packer_user_config  -- Autocommand that reloads neovim whenever you save the plugins.lua file
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
+
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
