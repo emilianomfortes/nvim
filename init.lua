@@ -1,4 +1,6 @@
 require("plugins")
+require("lsp-config")
+require("treesitter")
 
 vim.api.nvim_set_keymap('n', ' ', '', {noremap = true})
 vim.g.mapleader = ' '
@@ -11,17 +13,6 @@ vim.g.mapleader = ' '
 --- }}}
 
 -- General config {{{
-	-- Color
-	opt.termguicolors = true
-	cmd[[color bersp_nord]]
-	--cmd[[
-		--let g:everforest_background = 'hard'
-		--color everforest
-	--]]
-	--cmd[[
-	--hi! Normal ctermbg=NONE guibg=NONE
-	--hi! NonText ctermbg=NONE guibg=NONE
-	--]]
 
 	-- Change defaults
 	opt.relativenumber = true  -- show line numbers

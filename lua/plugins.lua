@@ -54,6 +54,8 @@ return packer.startup(function(use)
   use 'junegunn/fzf.vim' -- fuzzy finder
   use 'sirver/ultisnips' -- better snippets (suscribe Tab)
   use 'honza/vim-snippets' -- predefined snippets
+  use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
+  use 'lilydjwg/colorizer' -- colors on files e.g.#000
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -74,7 +76,7 @@ return packer.startup(function(use)
   use {'frenzyexists/aquarium-vim', config = function() vim.cmd 'colorscheme aquarium' end}
 
   -- use {'ishan9299/modus-theme-vim', config = function() vim.cmd 'colorscheme modus-vivendi' end}
-  -- use {'marko-cerovac/material.nvim', config = function() vim.cmd 'colorscheme material' end}
+  use {'marko-cerovac/material.nvim', config = function() vim.cmd 'colorscheme material' end}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
