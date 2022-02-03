@@ -7,13 +7,21 @@ if fn.empty(fn.glob(install_path)) > 0 then
   print("Installing packer close and reopen Neovim...")
 end
 
-
 vim.cmd([[
   augroup packer_user_config  -- Autocommand that reloads neovim whenever you save the plugins.lua file
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]])
+
+vim.cmd[[
+  syntax enable
+  let g:vimtex_view_method = 'general'
+  let g:vimtex_view_general_viewer = 'SumatraPDF'
+  let g:vimtex_compiler_method = 'latexmk'
+  let maplocalleader = ","
+]]
+
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -41,9 +49,24 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
-  -- Markdown
+  -- Essentials
+  use 'tpope/vim-surround' -- surround
+  use 'junegunn/fzf.vim' -- fuzzy finder
+  use 'sirver/ultisnips' -- better snippets (suscribe Tab)
+  use 'honza/vim-snippets' -- predefined snippets
+
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    config = function() require'nvim-tree'.setup {} end
+    }
+
+  -- Markdown and latex
   use {"ellisonleao/glow.nvim"} -- Markdown integration with glow in nvim
-    
+  use 'lervag/vimtex' -- Latex
+
   use 'nvim-treesitter/nvim-treesitter' -- Treesitter
 
 
