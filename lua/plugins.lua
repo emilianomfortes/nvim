@@ -55,7 +55,6 @@ return packer.startup(function(use)
   use 'sirver/ultisnips' -- better snippets (suscribe Tab)
   use 'honza/vim-snippets' -- predefined snippets
   use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
-  use 'lilydjwg/colorizer' -- colors on files e.g.#000
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -84,5 +83,4 @@ return packer.startup(function(use)
     require('packer').sync()
   end
 end)
-
 
