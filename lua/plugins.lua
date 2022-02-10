@@ -70,6 +70,9 @@ return packer.startup(function(use)
 
   use 'nvim-treesitter/nvim-treesitter' -- Treesitter
 
+  -- Julia
+  use 'JuliaEditorSupport/julia-vim' -- Latex in Vim for Julia
+
 
   -- COLORSCHEMES  
   use {'frenzyexists/aquarium-vim', config = function() vim.cmd 'colorscheme aquarium' end}
